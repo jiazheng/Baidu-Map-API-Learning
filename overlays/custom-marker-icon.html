@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>add-overlay</title>
+	<style>
+	#map_canvas{width:640px;height:400px}
+	</style>
+	<script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_canvas"></div>
+<script>
+var map = new BMap.Map('map_canvas');
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+
+var icon = new BMap.Icon('pin.png', new BMap.Size(20, 32), {anchor: new BMap.Size(10, 30)});
+var mkr = new BMap.Marker(new BMap.Point(116.3808, 39.9185), {icon: icon})
+map.addOverlay(mkr);
+</script>
+</body>
+</html>
