@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>add-overlay</title>
+	<title>marker-animation</title>
 	<style>
 	#map_canvas{width:640px;height:400px}
 	</style>
@@ -10,6 +10,8 @@
 </head>
 <body>
 <div id="map_canvas"></div>
+<input type="button" onclick="marker.setAnimation(BMAP_ANIMATION_BOUNCE)" value="启动动画" />
+<input type="button" onclick="marker.setAnimation(null)" value="停止动画" />
 <script>
 var map = new BMap.Map('map_canvas');
 map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);

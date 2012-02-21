@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>add-overlay</title>
+	<title>add-listener</title>
 	<style>
 	#map_canvas{width:640px;height:400px}
 	</style>
@@ -13,11 +13,10 @@
 <script>
 var map = new BMap.Map('map_canvas');
 map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-var marker = new BMap.Marker(new BMap.Point(116.3808, 39.9185));
-map.addOverlay(marker);
 
-// marker.enableDragging();
-
+map.addEventListener('click', function(){
+    alert('您点击了地图');
+})
 </script>
 </body>
 </html>

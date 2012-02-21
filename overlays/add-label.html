@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>add-label</title>
+	<style>
+	#map_canvas{width:640px;height:400px}
+	</style>
+	<script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_canvas"></div>
+<script>
+var map = new BMap.Map('map_canvas');
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 15);
+
+var lbl = new BMap.Label('这里是故宫', {
+    position: new BMap.Point(116.403335,39.921908)
+});
+map.addOverlay(lbl);
+
+lbl.setStyles({
+    'backgroundColor': 'rgba(0, 0, 0, 0.7)',
+    'padding': '3px',
+    'borderRadius': '5px',
+    'border': 'none',
+    'color': 'white',
+    'fontSize': '15px'
+})
+</script>
+</body>
+</html>
