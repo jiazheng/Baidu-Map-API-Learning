@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>localsearch</title>
+	<style>
+	#map_canvas{width:640px;height:400px;float:left}
+	#panel{float:left;width:500px}
+	</style>
+	<script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_canvas"></div>
+<div id="panel"></div>
+<script>
+var map = new BMap.Map('map_canvas');
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+
+var local = new BMap.LocalSearch('北京', {
+    renderOptions: {
+        map: map,
+        panel: 'panel'
+    },
+    onSearchComplete: function(result){
+        // 判断检索状态
+        if (local.getStatus() == BMAP_STATUS_SUCCESS) {
+            // 从结果对象获取信息
+            alert('共有' + result.getNumPois() + '个结果');
+        } else if (local.getStatus() == BMAP_STATUS_UNKNOWN_LOCATION) {
+            alert('抱歉，关键词“' + result.keyword + '”没有结果');
+        }
+    }
+});
+local.search('星巴克');
+//local.search('aweoifjaweif;jo'); // 无结果
+
+</script>
+</body>
+</html>

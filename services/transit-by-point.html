@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>transit</title>
+	<style>
+	#map_canvas{width:640px;height:400px}
+	</style>
+	<script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_canvas"></div>
+<script>
+var map = new BMap.Map('map_canvas');
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+
+var transit = new BMap.TransitRoute('北京', {
+    renderOptions: {
+        map: map
+    }
+});
+var pos1 = new BMap.Point(116.368768, 39.94791);
+var pos2 = new BMap.Point(116.435674, 39.920248);
+transit.search(pos1, pos2);
+
+</script>
+</body>
+</html>

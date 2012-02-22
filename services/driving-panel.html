@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>driving</title>
+	<style>
+	#map_canvas{width:640px;height:400px;float:left}
+	#panel{float:left;width:500px}
+	</style>
+	<script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+<body>
+<div id="map_canvas"></div>
+<div id="panel"></div>
+<script>
+var map = new BMap.Map('map_canvas');
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+
+var drv = new BMap.DrivingRoute('北京', {
+    renderOptions: {
+        map: map,
+        panel: 'panel'
+    }
+});
+drv.search('西单', '中关村');
+
+</script>
+</body>
+</html>
