@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>custom-maptype</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<style>
+#map_canvas{width:640px;height:400px}
+</style>
+</head>
+
+<body>
+<div id="map_canvas"></div>
+<input type="button" onclick="map.setMapType(BMAP_NORMAL_MAP)" value="set to normal map" />
+<input type="button" onclick="map.setMapType(MyMap)" value="set to my map" />
+<script type="text/javascript">
+var tileLayer = new BMap.TileLayer();
+tileLayer.getTilesUrl = function(tileCoord, zoom) {
+    var x = tileCoord.x;
+    var y = tileCoord.y;
+    return 'tiles/' + zoom + '/tile' + x + '_' + y + '.png';
+}
+var MyMap = new BMap.MapType('MyMap', tileLayer, {minZoom: 1, maxZoom: 3});
+var map = new BMap.Map('map_canvas', {mapType: MyMap});
+map.centerAndZoom(new BMap.Point(0, 0), 3);
+</script>
+</body>
+</html>
+</script>
+</body>
+</html>
